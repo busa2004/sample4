@@ -1,0 +1,68 @@
+*{
+    margin : 0 ;
+    padding : 0;
+    
+}
+
+nav {
+    height : 60px;
+    background-color: #4a4c88;
+}
+
+ul > li {
+    display : inline-block;
+    padding : 0 60px;
+}
+
+li > a {
+    line-height: 60px;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+li > a:hover {
+    opacity: 1.0;
+}
+
+.content {
+    padding : 60px;
+}
+
+.card {
+    display: inline-flex;
+    flex-direction: column;
+    /* margin-left: calc( (100% - (20% * 4)) / 4); */
+    width: 250px;
+    height: 250px;
+}
+
+.card-image{
+    height: 100%;
+}
+
+table.type04 {
+  border-collapse: separate;
+  border-spacing: 1px;
+  text-align: left;
+  line-height: 1.5;
+  border-top: 1px solid #ccc;
+  margin : 20px 10px;
+}
+table.type04 th {
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
+table.type04 td {
+  width: 350px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
+
+

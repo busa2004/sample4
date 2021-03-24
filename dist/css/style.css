@@ -1,0 +1,159 @@
+*{
+    margin : 0 ;
+    padding : 0;
+    
+}
+
+nav {
+    height : 60px;
+    background-color: #4a4c88;
+}
+
+ul > li {
+    display : inline-block;
+    padding : 0 60px;
+}
+
+li > a {
+    line-height: 60px;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+li > a:hover {
+    opacity: 1.0;
+}
+
+.content {
+    padding : 60px;
+}
+
+.graph-container{
+    
+}
+
+.graph-item{
+    display: inline-flex;
+    width: 500px; 
+    height: 350px;
+}
+
+
+
+.box{
+    display: flex;
+    flex-direction: row;
+}
+.box-div{
+    width: 250px;
+    height: 250px;
+}
+
+.box-image{
+    height: 100%;
+    width: 100%;
+}
+
+.box-result{
+    height: 90%;
+    width:95%;
+    border:1px;
+}
+
+.box-input{
+    height: 10%;
+    width:95%;
+}
+
+.card {
+    display: inline-flex;
+    flex-direction: column;
+    /* margin-left: calc( (100% - (20% * 4)) / 4); */
+    width: 250px;
+    height: 250px;
+}
+
+.card-image{
+    height: 100%;
+}
+
+.search-box{
+    height: 10%;
+}
+
+
+.result-box{
+    height: 90%;
+}
+
+table.type04 {
+  border-collapse: separate;
+  border-spacing: 1px;
+  text-align: center;
+  line-height: 1.5;
+  border-top: 1px solid #ccc;
+  margin : 20px 10px;
+}
+table.type04 th {
+  width: 100px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
+
+table.type04 td {
+  width: 100px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
+
+table.type05 {
+    border-collapse: separate;
+    border-spacing: 1px;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    margin : 20px 10px;
+}
+
+table.type05 th {
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
+  
+  
+
+
+.hidden {
+    visibility: hidden;
+}
+
+.spinner-wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 1;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgb(255, 255, 255, 0.7);
+}
+
+.spinner-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 49%;
+}
