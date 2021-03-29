@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-catch */
-const API_ENDPOINT = 'http://ec2-13-209-105-173.ap-northeast-2.compute.amazonaws.com';
+const API_ENDPOINT = 'http://ec2-13-209-105-173.ap-northeast-2.compute.amazonaws.com:8081';
 
 const request = async url => {
     try {
@@ -34,7 +34,8 @@ const api = {
                 data: responses
             };
         } catch(e) {
-            return {
+           
+            throw {
                 isError: true,
                 data: e
             };

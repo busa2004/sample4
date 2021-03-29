@@ -1,11 +1,12 @@
 import Card from './Card.js';
 
 export default class Content{
-    constructor({$target,onSearch}){
+    constructor({$target,onSearch,onNew}){
         this.data = {name: 'home'}
         this.onSearch = onSearch
         this.content = document.createElement('div');
         this.content.className = 'content'
+        this.onNew = onNew
         this.url = {
             fearAndGrid : 'https://money.cnn.com/registry/html/.element/img/8.0/data/feargreed/1.png',
             fearAndGridBitCoin : 'https://alternative.me/crypto/fear-and-greed-index.png',
@@ -135,6 +136,47 @@ export default class Content{
         container.appendChild(box);
     }
 
+    searchNews(table,croll){
+        table.innerHTML = ''
+            
+        croll.forEach(e => {
+            this.setNews(table,e)
+        });
+
+    }
+
+
+    newsBox(container){
+        
+        const box = document.createElement('div');
+        
+        const input = document.createElement('input');
+        
+        input.placeholder = '검색어를 입력하세요.'
+        
+        const result = document.createElement('div');
+
+        const table = document.createElement('table');
+        table.className = 'type05'
+            
+        this.data.croll.forEach(e => {
+            this.setNews(table,e)
+        });
+
+        input.addEventListener('keyup', event => {
+            if(event.keyCode == 13 && input.value){
+                this.onNew(table,input.value);
+                //console.log ('이벤트 발생')
+            }
+        });
+
+        result.appendChild(table)
+        box.appendChild(input)
+        box.appendChild(result)
+
+        container.appendChild(box);
+    }
+
     setImgBox(container,url){
         const div = document.createElement('div')
         div.className = 'box-div'
@@ -192,13 +234,9 @@ export default class Content{
         else if(this.data.name == 'news'){
 
             const div = document.createElement('div');
-            const table = document.createElement('table');
-            table.className = 'type05'
 
-            this.data.croll.forEach(e => {
-                this.setNews(table,e)
-            });
-            div.appendChild(table)
+            this.newsBox(div)
+
             this.content.appendChild(div)
 
 

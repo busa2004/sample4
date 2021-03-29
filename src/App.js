@@ -10,21 +10,27 @@ export default class App {
                 content.change({name : name})
             },
             onPosts: async (name) => {
-                loading.toggleSpinner();
-                const response = await api.posts();
-                const croll = await crolling.posts("QQQ");
-                if(!response.isError){
+                try {
                     loading.toggleSpinner();
-                    content.change({name : name, data : response.data, croll : croll.data})
-                } else {
+                    const response = await api.posts();
+                    const croll = await crolling.posts("QQQ");
+
+                    if(!response.isError){
+                        loading.toggleSpinner();
+                        content.change({name : name, data : response.data, croll : croll.data})                       
+                    } 
+
+                }catch(e){
                     loading.toggleSpinner();
-                    console.log(response.data);
+                    console.log(e)
                 }
             },
             onNews: async (name) => {
                 loading.toggleSpinner();
-                const croll = await crolling.news();
+                console.log('ons 로딩시작')
+                const croll = await crolling.news('nasdaq');
                 content.change({name:name,  croll : croll.data})
+                console.log('ons 호출')
 
                 if(!croll.isError){
                     // if(!croll.data.nowPrice) 
@@ -32,9 +38,11 @@ export default class App {
                     // content.searchByKeyword(container,croll.data)
                     
                     loading.toggleSpinner();
+                    console.log('ons 로딩끝')
                 } else {
                     console.log(croll);
                     loading.toggleSpinner();
+                    console.log('ons 에러')
                 }
             }
 
@@ -51,6 +59,30 @@ export default class App {
                 } else {
                     console.log(croll.data);
                     loading.toggleSpinner();
+                }
+            },
+            onNew: async (result,inputValue) => {
+                
+                loading.toggleSpinner();
+                //console.log('onNew 로딩시작')
+
+               const croll = await crolling.news(inputValue);
+                console.log(' onNew 호출 ')
+                
+
+                if(!croll.isError){
+                    // if(!croll.data.nowPrice) 
+                    //     croll.data.nowPrice = '데이터가 없습니다.'
+                    // content.searchByKeyword(container,croll.data)
+                    content.searchNews(result,croll.data)
+                    
+                    loading.toggleSpinner();
+                    //console.log('onNew 로딩끝')
+                } else {
+                   // console.log(croll);
+
+                    loading.toggleSpinner();
+                    onsole.log('onNew exception')
                 }
             }
         });   

@@ -17,7 +17,6 @@ const request = async url => {
           throw errorData;
       }
   } catch(e) {
-    loading.toggleSpinner();
       throw {
           message: e.message,
           status: e.status
@@ -44,7 +43,6 @@ const crolling = {
               data: data
           };
       } catch(e) {
-        loading.toggleSpinner();
           return {
               isError: true,
               data: e
@@ -52,20 +50,19 @@ const crolling = {
       }
   },
 
-  news: async () => {
+  news: async inputValue => {
     
         try {
-            const requests = await request("/rss/search?q=nasdaq+when:1d&hl=ko&gl=KR&ceid=KR:ko");
+            const requests = await request("/rss/search?q="+inputValue+"+when:1d&hl=ko&gl=KR&ceid=KR:ko");
             // const responses = await Promise.all(requests);
-            //console.log(1,requests)
-
+            
             let itemList = [];
 
             const $ = cheerio.load(requests);
             const $bodyList = $("item")
-
+            //1개밖에 없을 때 배열로 반환 안하는 듯 함
             $bodyList.each(function(i, elem) {
-                console.log($(this))
+             
                 itemList[i] = {
                     
                     tag: $(this).find('description').text()
