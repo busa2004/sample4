@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-catch */
-const API_ENDPOINT = 'http://ec2-13-209-105-173.ap-northeast-2.compute.amazonaws.com:8081';
+const API_ENDPOINT = 'http://localhost:8080';
 
 const request = async url => {
     try {
@@ -25,7 +25,7 @@ const api = {
             keyword로 breed를 찾고 각 breed의 id로 이미지를 찾는다.
         */
         try {
-            const requests = await request(`${API_ENDPOINT}/api/v1/posts/list`);
+            const requests = await request(`${API_ENDPOINT}/api/v1/stocks`);
           
             const responses = await Promise.all(requests);
             
